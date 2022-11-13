@@ -1,6 +1,6 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Product } from '../../types/productTypes';
 import { Button } from '@mantine/core';
@@ -18,7 +18,7 @@ export default function addItem() {
     const [prodIt, setProdIt] = useState('Scanning Items...');
     const [prodData, setProdData] = useState<Product | null>();
     const [needCreate, setNeedCreate] = useState(false);
-    const audio = new Audio('Sound.wav');
+    const [audio, setAudio] = useState<any>();
     const [showAdd, setShowAdd] = useState(false);
 
     const [showCreate, setShowCreate] = useState(false);
@@ -33,6 +33,9 @@ export default function addItem() {
             setNeedCreate(true);
         }
     };
+    useEffect(() => {
+        setAudio(new Audio('Sound.wav'));
+    }, []);
 
     return (
         <div className="flex h-[95vh] w-[100vw] flex-col items-center justify-around">

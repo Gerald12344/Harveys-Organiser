@@ -1,7 +1,8 @@
+'use client';
 import { useForm } from '@mantine/form';
 import { NumberInput, TextInput, Button, Select } from '@mantine/core';
 import { Category, CategoryList, Product, ProductItem } from '../../types/productTypes';
-import ImageUpload from './ImageUpload';
+import ImageUpload from './_ImageUpload';
 import axios from 'axios';
 import { v4 } from 'uuid';
 import { DatePicker } from '@mantine/dates';

@@ -3,11 +3,11 @@ import { Button, Paper, ScrollArea } from '@mantine/core';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { IconArrowBack } from '@tabler/icons';
-import { useState } from 'react';
-import { ProductItem } from '../../types/productTypes';
+import { useEffect, useState } from 'react';
+import { ProductItem } from '../types/productTypes';
 import axios from 'axios';
 
-const BarcodeScannerComponent = dynamic(() => import('../../components/barcode'), {
+const BarcodeScannerComponent = dynamic(() => import('../components/barcode'), {
     ssr: false,
 });
 
@@ -15,7 +15,7 @@ export default function removeItems() {
     const [prodIt, setProdIt] = useState('Scanning Items...');
     const [prods, setProds] = useState<ProductItem[]>([]);
 
-    const audio = new Audio('Sound.wav');
+    const [audio, setAudio] = useState<any>();
 
     let onUpdate = async (data: string) => {
         audio.play();
@@ -25,6 +25,10 @@ export default function removeItems() {
         setProds(dataOut.data ?? []);
         console.log(dataOut.data ?? []);
     };
+
+    useEffect(() => {
+        setAudio(new Audio('Sound.wav'));
+    }, []);
 
     return (
         <div className="flex h-[95vh] w-[100vw] flex-col items-center justify-around">

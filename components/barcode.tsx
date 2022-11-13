@@ -5,7 +5,6 @@ let rendered = false;
 
 function YourComponent({ update }: { update: (data: string) => void }) {
     const { Html5QrcodeScanner } = useHtml5QrCodeScanner('html5-qrcode.min.js');
-
     if (Html5QrcodeScanner && !rendered) {
         rendered = true;
         console.log('got it');
