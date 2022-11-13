@@ -41,7 +41,7 @@ export default function FormForCreate({ prodId, nextPage }: { prodId: string; ne
     return (
         <form onSubmit={form.onSubmit(submitted)} className="w-[80%]">
             <TextInput label="Name" placeholder="Name" {...form.getInputProps('Name')} />
-            <NumberInput mt="sm" label="Price" placeholder="Price" min={0} max={100} {...form.getInputProps('Price')} />
+            <NumberInput mt="sm" label="Price" placeholder="Price" min={0} precision={2} max={1000} {...form.getInputProps('Price')} />
 
             <Select label="Category" mt="sm" placeholder="Category" data={CategoryList} {...form.getInputProps('Category')} />
 
