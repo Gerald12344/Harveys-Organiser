@@ -30,6 +30,8 @@ export default function addItem() {
         setProdData(dataOut.data);
         if (dataOut.data == null) {
             setNeedCreate(true);
+        } else {
+            setShowAdd(true);
         }
     };
 

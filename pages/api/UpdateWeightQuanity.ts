@@ -1,9 +1,6 @@
-
-
 import { NextApiRequest, NextApiResponse } from "next";
 import nextConnect from "next-connect";
 import clientPromise from "../../server/MongoConnect";
-import { Product } from "../../types/productTypes";
 
 
 const apiRoute = nextConnect({
@@ -17,13 +14,12 @@ const apiRoute = nextConnect({
 
 
 apiRoute.post(async (req: NextApiRequest, res: NextApiResponse) => {
-    let { Category, CuboardEssntial, Image, Name, Price, Quantity, Weight, prodId, Where }: Product = req.body;
-
+    const { WeightLeft, QuantityLeft, id } = req.body;
     const db = await clientPromise;
     if (db) {
-        const collection = db.db("InventoryManager").collection("products");
-        const product = await collection.insertOne({ Category, CuboardEssntial, Image, Name, Price, Quantity, Weight, prodId, Where });
-        res.json({ success: true });
+        const collection = db.db("InventoryManager").collection("purchases");
+        const product = await collection.updateOne({ UUID: id, }, { $set: { WeightLeft, QuantityLeft } });
+        res.json(product);
     } else {
         res.status(500).json({ error: "no db connection" });
     }

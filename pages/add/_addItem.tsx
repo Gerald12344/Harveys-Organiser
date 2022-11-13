@@ -6,6 +6,7 @@ import ImageUpload from './_ImageUpload';
 import axios from 'axios';
 import { v4 } from 'uuid';
 import { DatePicker } from '@mantine/dates';
+import { useState } from 'react';
 
 const defaultValues: ProductItem = {
     BestbeforeDate: 0,
@@ -18,14 +19,22 @@ const defaultValues: ProductItem = {
 };
 
 export default function FormForAdd({ prodId, nextPage }: { prodId: string; nextPage: () => void }) {
+    const [debounce, setDebounce] = useState(false);
     let submitted = async () => {
-        await axios.post('/api/addProd', {
-            ...form.values,
-            prodId,
-            BestbeforeDate: new Date(form.values.BestbeforeDate).valueOf(),
-            PurchaseDate: new Date(form.values.PurchaseDate).valueOf(),
-            UUID: v4(),
-        });
+        if (debounce) return;
+        setDebounce(true);
+        try {
+            await axios.post('/api/addProd', {
+                ...form.values,
+                prodId,
+                BestbeforeDate: new Date(form.values.BestbeforeDate).valueOf(),
+                PurchaseDate: new Date(form.values.PurchaseDate).valueOf(),
+                UUID: v4(),
+            });
+        } catch {
+        } finally {
+            setDebounce(false);
+        }
         nextPage();
     };
 

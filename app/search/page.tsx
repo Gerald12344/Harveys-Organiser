@@ -56,6 +56,12 @@ export default function SearchProduct() {
                                     <p>
                                         <strong>Total Quantity Left:</strong> <span className="text-neutral-400">{showDetails?.QuantityLeft}</span>
                                     </p>
+                                    <p>
+                                        <strong>From:</strong> <span className="text-neutral-400">{selectedProduct?.Where}</span>
+                                    </p>
+                                    <p>
+                                        <strong>Price:</strong> <span className="text-neutral-400">£{selectedProduct?.Price}</span>
+                                    </p>
                                 </>
                             )}
                         </div>

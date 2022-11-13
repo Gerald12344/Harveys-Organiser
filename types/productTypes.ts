@@ -8,10 +8,12 @@ export interface Product {
     CuboardEssntial: boolean;
     Category: Category;
     Image: string;
+    Where: Where
 }
 
 // Individual Purchase 
 export interface ProductItem {
+    _id?: string;
     prodId: string;
     UUID: string;
     BestbeforeDate: number;
@@ -22,6 +24,8 @@ export interface ProductItem {
 }
 
 export type Category = "Meat" | "Dairy" | "Fruit" | "Vegetable" | "Carbs" | "Snacks" | "Drinks" | "Baking" | "Other"
+export type Where = "Tesco" | "Aldi" | "Lidl" | "Sainsburys" | "Asda" | "Morrisons" | "Waitrose" | "Coop" | "Other"
 
 const CategoryList = ["Meat", "Dairy", "Fruit", "Vegetable", "Carbs", "Snacks", "Drinks", "Baking", "Other"];
-export { CategoryList };
+const WhereList = ["Tesco", "Aldi", "Lidl", "Sainsburys", "Asda", "Morrisons", "Waitrose", "Coop", "Other"];
+export { CategoryList, WhereList };

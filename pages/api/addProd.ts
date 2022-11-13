@@ -21,8 +21,8 @@ apiRoute.post(async (req: NextApiRequest, res: NextApiResponse) => {
     if (db) {
         const collection = db.db("InventoryManager").collection("purchases");
         const collection2 = db.db("InventoryManager").collection("products");
-        const product2 = await collection.findOne({ prodId }) as any;
-        const product = await collection.insertOne({ BestbeforeDate, PurchaseDate, QuantityLeft: product2.QuantityLeft, UUID, WeightLeft: product2.WeightLeft, prodId, inStock });
+        const product2 = await collection2.findOne({ prodId }) as any;
+        await collection.insertOne({ BestbeforeDate, PurchaseDate, QuantityLeft: product2.Quantity, UUID, WeightLeft: product2.Weight, prodId, inStock });
         res.json({ success: true });
     } else {
         res.status(500).json({ error: "no db connection" });

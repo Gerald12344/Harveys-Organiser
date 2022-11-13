@@ -25,6 +25,11 @@ export default function mainApp() {
                         Search Items
                     </Button>
                 </a>
+                <a href={'/ShoppingList'} className="p-3">
+                    <Button style={{ backgroundColor: '#F783AC' }} className="Nope">
+                        Shopping List
+                    </Button>
+                </a>
             </div>
         </div>
     );

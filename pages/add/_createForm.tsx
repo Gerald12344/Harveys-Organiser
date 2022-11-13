@@ -1,18 +1,19 @@
 import { useForm } from '@mantine/form';
 import { NumberInput, TextInput, Button, Select, Switch } from '@mantine/core';
-import { Category, CategoryList, Product } from '../../types/productTypes';
+import { Category, CategoryList, Product, WhereList } from '../../types/productTypes';
 import ImageUpload from './_ImageUpload';
 import axios from 'axios';
 
 const defaultValues: Product = {
     Name: '',
     Price: 0,
-    Quantity: 0,
+    Quantity: 1,
     Weight: 0,
     Category: 'Other',
     CuboardEssntial: false,
     prodId: '',
     Image: '',
+    Where: 'Aldi',
 };
 
 export default function FormForCreate({ prodId, nextPage }: { prodId: string; nextPage: (name: string) => void }) {
@@ -33,6 +34,7 @@ export default function FormForCreate({ prodId, nextPage }: { prodId: string; ne
             Weight: (value: number) => (value < 0 ? 'Weight must be positive' : null),
             Quantity: (value: number) => (value < 0 ? 'Quantity must be positive' : null),
             Image: (value: string) => (value.length < 1 ? 'Image must be uploaded' : null),
+            Where: (value: string) => (value.length < 1 ? 'Where must be selected' : null),
         },
     });
 
@@ -48,6 +50,8 @@ export default function FormForCreate({ prodId, nextPage }: { prodId: string; ne
 
             <Switch mt="sm" label="Cuboard Essential" {...form.getInputProps('CuboardEssntial')} />
 
+            <Select label="Where" mt="sm" placeholder="Where" data={WhereList} {...form.getInputProps('Where')} />
+
             <ImageUpload
                 {...form.getInputProps('Image')}
                 setImages={(image: string) => {
@@ -55,7 +59,7 @@ export default function FormForCreate({ prodId, nextPage }: { prodId: string; ne
                 }}
             />
 
-            <Button mt="sm" type="submit" variant="outline" color="white" style={{ color: 'white', width: '80vw', marginTop: '40px' }}>
+            <Button mt="sm" type="submit" variant="outline" color="white" style={{ color: 'white', width: '80vw', marginTop: '10px' }}>
                 Add Product
             </Button>
         </form>

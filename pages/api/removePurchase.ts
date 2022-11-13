@@ -18,7 +18,7 @@ apiRoute.get(async (req: NextApiRequest, res: NextApiResponse) => {
     const db = await clientPromise;
     if (db) {
         const collection = db.db("InventoryManager").collection("purchases");
-        const product = await collection.updateOne({ UUID: id, }, { $set: { inStock: false } });
+        const product = await collection.updateOne({ UUID: id, }, { $set: { inStock: false, WeightLeft: 0, QuantityLeft: 0 } });
         res.json(product);
     } else {
         res.status(500).json({ error: "no db connection" });
