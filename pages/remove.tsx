@@ -15,20 +15,13 @@ export default function removeItems() {
     const [prodIt, setProdIt] = useState('Scanning Items...');
     const [prods, setProds] = useState<ProductItem[]>([]);
 
-    const [audio, setAudio] = useState<any>();
-
     let onUpdate = async (data: string) => {
-        audio.play();
         setProdIt(data);
 
         let dataOut = await axios.get<ProductItem[] | null>('/api/getProds?id=' + data);
         setProds(dataOut.data ?? []);
         console.log(dataOut.data ?? []);
     };
-
-    useEffect(() => {
-        setAudio(new Audio('Sound.wav'));
-    }, []);
 
     return (
         <div className="flex h-[95vh] w-[100vw] flex-col items-center justify-around">

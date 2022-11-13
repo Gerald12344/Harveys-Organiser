@@ -18,14 +18,13 @@ export default function addItem() {
     const [prodIt, setProdIt] = useState('Scanning Items...');
     const [prodData, setProdData] = useState<Product | null>();
     const [needCreate, setNeedCreate] = useState(false);
-    const [audio, setAudio] = useState<any>();
+
     const [showAdd, setShowAdd] = useState(false);
 
     const [showCreate, setShowCreate] = useState(false);
     const forceUpdate = useForceUpdate();
 
     let onUpdate = async (data: string) => {
-        audio.play();
         setProdIt(data);
         let dataOut = await axios.get<Product | null>('/api/lookupProd?id=' + data);
         setProdData(dataOut.data);
@@ -33,9 +32,6 @@ export default function addItem() {
             setNeedCreate(true);
         }
     };
-    useEffect(() => {
-        setAudio(new Audio('Sound.wav'));
-    }, []);
 
     return (
         <div className="flex h-[95vh] w-[100vw] flex-col items-center justify-around">

@@ -36,16 +36,12 @@ export default function FormForAdd({ prodId, nextPage }: { prodId: string; nextP
         // functions will be used to validate values at corresponding key
         validate: {
             BestbeforeDate: (value: number) => (value < 0 ? 'Best before date must be positive' : null),
-            QuantityLeft: (value: number) => (value < 0 ? 'Quantity must be positive' : null),
-            WeightLeft: (value: number) => (value < 0 ? 'Weight must be positive' : null),
         },
     });
 
     return (
         <form onSubmit={form.onSubmit(submitted)} className="w-[80%]">
             <DatePicker placeholder="Best Before Date" label="Best Before Date" {...form.getInputProps('BestbeforeDate')} />
-            <NumberInput mt="sm" label="Quantity" placeholder="Quantity" min={0} max={100} {...form.getInputProps('QuantityLeft')} />
-            <NumberInput mt="sm" label="Weight" placeholder="Weight" min={0} max={100} {...form.getInputProps('WeightLeft')} />
 
             <Button mt="sm" type="submit" variant="outline" color="white" style={{ color: 'white', width: '80vw', marginTop: '40px' }}>
                 Add Product
