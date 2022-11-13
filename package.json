@@ -1,0 +1,43 @@
+{
+  "name": "barcode",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.7.2",
+    "@mantine/dates": "^5.7.2",
+    "@mantine/form": "^5.7.2",
+    "@mantine/hooks": "^5.7.2",
+    "@mantine/next": "^5.7.2",
+    "@tabler/icons": "^1.111.0",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
+    "@zxing/library": "^0.19.1",
+    "axios": "^1.1.3",
+    "html5-qrcode": "^2.3.0",
+    "mongodb": "^4.11.0",
+    "next": "13.0.3",
+    "next-connect": "^0.13.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-html5-qrcode-reader": "^1.1.0",
+    "react-qr-barcode-scanner": "^1.0.6",
+    "react-qr-reader": "^3.0.0-beta-1",
+    "typescript": "4.8.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
+  }
+}
