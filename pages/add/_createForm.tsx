@@ -45,8 +45,8 @@ export default function FormForCreate({ prodId, nextPage }: { prodId: string; ne
 
             <Select label="Category" mt="sm" placeholder="Category" data={CategoryList} {...form.getInputProps('Category')} />
 
-            <NumberInput mt="sm" label="Weight" placeholder="Weight" min={0} max={100} {...form.getInputProps('Weight')} />
-            <NumberInput mt="sm" label="Quantity" placeholder="Quantity" min={0} max={100} {...form.getInputProps('Quantity')} />
+            <NumberInput mt="sm" label="Weight" placeholder="Weight" min={0} precision={2} max={1000} {...form.getInputProps('Weight')} />
+            <NumberInput mt="sm" label="Quantity" placeholder="Quantity" min={0} max={1000} {...form.getInputProps('Quantity')} />
 
             <Switch mt="sm" label="Cuboard Essential" {...form.getInputProps('CuboardEssntial')} />
 
