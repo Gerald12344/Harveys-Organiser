@@ -1,0 +1,18 @@
+{
+    "name": "Harvey Organizer",
+    "short_name": "Logistics",
+    "icons": [
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/",
+    "splash_pages": null,
+    "orientation": "portrait"
+}
