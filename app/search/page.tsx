@@ -41,7 +41,7 @@ export default function SearchProduct() {
                     </Button>
                 </Link>
             </div>
-            <h1>Soon Expiring Items</h1>
+            <h1>Search Item</h1>
             <div className=" w-[90vw] flex-1  items-center flex flex-col h-[80%] ">
                 <div className="flex flex-col justify-center" style={{ flexGrow: '1' }}>
                     {selectedProduct !== undefined && (

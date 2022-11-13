@@ -30,6 +30,11 @@ export default function mainApp() {
                         Shopping List
                     </Button>
                 </a>
+                <a href={'/list'} className="p-3">
+                    <Button style={{ backgroundColor: '#74B816' }} className="Nope">
+                        Total List
+                    </Button>
+                </a>
             </div>
         </div>
     );
