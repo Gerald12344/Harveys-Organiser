@@ -33,3 +33,7 @@ a {
 #reader__dashboard_section {
     /*display: none;*/
 }
+#reader {
+    border: none !important;
+    margin-top: 30px;
+}

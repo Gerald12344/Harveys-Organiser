@@ -21,6 +21,6 @@ function YourComponent({ update }: { update: (data: string) => void }) {
     }
 
     // beware: id must be the same as the first argument of Html5QrcodeScanner
-    return <div id="reader" className=""></div>;
+    return <div id="reader" className="max-h-[300px]" style={{ maxHeight: '300px' }}></div>;
 }
 export default YourComponent;
