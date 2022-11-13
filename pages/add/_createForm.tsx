@@ -15,10 +15,10 @@ const defaultValues: Product = {
     Image: '',
 };
 
-export default function FormForCreate({ prodId, nextPage }: { prodId: string; nextPage: () => void }) {
+export default function FormForCreate({ prodId, nextPage }: { prodId: string; nextPage: (name: string) => void }) {
     let submitted = async () => {
         await axios.post('/api/createProd', { ...form.values, prodId });
-        nextPage();
+        nextPage(form?.values?.Name as any);
     };
 
     const form = useForm({
@@ -33,7 +33,6 @@ export default function FormForCreate({ prodId, nextPage }: { prodId: string; ne
             Weight: (value: number) => (value < 0 ? 'Weight must be positive' : null),
             Quantity: (value: number) => (value < 0 ? 'Quantity must be positive' : null),
             Image: (value: string) => (value.length < 1 ? 'Image must be uploaded' : null),
-            CuboardEssntial: (value: boolean) => (value === false ? 'Must be checked' : null),
         },
     });
 

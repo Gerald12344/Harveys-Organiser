@@ -61,7 +61,8 @@ export default function addItem() {
                     <div className="flex-1 w-full flex items-center justify-center">
                         <FormForCreate
                             prodId={`${prodIt}`}
-                            nextPage={() => {
+                            nextPage={(name: string) => {
+                                setProdData({ Name: name } as any);
                                 setShowAdd(true);
                             }}
                         />
@@ -90,7 +91,13 @@ export default function addItem() {
                     ) : (
                         needCreate && (
                             <div className="flex flex-col items-center justify-center">
-                                <Button onClick={() => setShowCreate(true)}>Create Item</Button>
+                                <Button
+                                    onClick={() => {
+                                        setShowCreate(true);
+                                    }}
+                                >
+                                    Create Item
+                                </Button>
                             </div>
                         )
                     )}
