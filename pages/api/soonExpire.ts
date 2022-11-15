@@ -21,8 +21,8 @@ apiRoute.get(async (req: NextApiRequest, res: NextApiResponse) => {
     if (db) {
         const collection = db.db("InventoryManager").collection("purchases");
         const collection2 = db.db("InventoryManager").collection("products");
-        const product = await collection.find({ BestbeforeDate: { $lt: new Date().valueOf() + 7 * 24 * 60 * 60 * 1000 } }).toArray() as any as ProductItem[];
-        const mainproducts = await collection2.find({ prodId: { $in: product.map(e => e.prodId) }, inStock: true }).toArray();
+        const product = await collection.find({ BestbeforeDate: { $lt: new Date().valueOf() + 7 * 24 * 60 * 60 * 1000 }, inStock: true }).toArray() as any as ProductItem[];
+        const mainproducts = await collection2.find({ prodId: { $in: product.map(e => e.prodId) } }).toArray();
 
         let lookupTabel: any = {};
         mainproducts.forEach(e => {
