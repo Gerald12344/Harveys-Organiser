@@ -24,8 +24,8 @@ export interface ProductItem {
 }
 
 export type Category = "Meat" | "Dairy" | "Fruit" | "Vegetable" | "Carbs" | "Snacks" | "Drinks" | "Baking" | "Other"
-export type Where = "Tesco" | "Aldi" | "Lidl" | "Sainsburys" | "Asda" | "Morrisons" | "Waitrose" | "Coop" | "Other"
+export type Where = "Aldi" | "Spar" | "Tesco" | "Cost Cutter" | "Lidl" | "Sainsburys" | "Asda" | "Morrisons" | "Waitrose" | "Coop" | "M&S" | "Other"
 
 const CategoryList = ["Meat", "Dairy", "Fruit", "Vegetable", "Carbs", "Snacks", "Drinks", "Baking", "Other"];
-const WhereList = ["Tesco", "Aldi", "Lidl", "Sainsburys", "Asda", "Morrisons", "Waitrose", "Coop", "Other"];
+const WhereList: Where[] = ["Aldi", "Spar", "Tesco", "Cost Cutter", "Lidl", "Sainsburys", "Asda", "Morrisons", "Waitrose", "Coop", "M&S", "Other"];
 export { CategoryList, WhereList };
