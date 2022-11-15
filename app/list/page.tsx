@@ -36,13 +36,13 @@ export default function listAll() {
                     </Button>
                 </Link>
             </div>
-            <Select value={type} data={['all', ...CategoryList]} onChange={(e: any) => setType(e as Category | 'all')} />
+            <Select value={type} data={['all', ...CategoryList]} className={'absolute top-[10px]'} onChange={(e: any) => setType(e as Category | 'all')} />
             {prodData === null || prodData.length === 0 ? (
                 <div className="flex-1 flex items-center justify-center">
                     <h1>No items in that category!</h1>
                 </div>
             ) : (
-                <div className="flex-1 w-full items-center mt-10">
+                <div className="flex-1 w-full items-center mt-10 absolute top-[20px]">
                     {prodData?.map((item: ProductItem) => {
                         const product = lookup[(item as any)._id];
 
@@ -51,7 +51,7 @@ export default function listAll() {
                         return (
                             <Paper className="flex flex-row items-center w-[90%] ml-[5%] mb-3" key={item.UUID} radius="md">
                                 <div className="w-[100px] mr-3">
-                                    <Image src={product.Image} width={400} height={400} alt="food pic" />
+                                    <Image src={product.Image} width={400} height={400} alt="food pic" style={{ borderRadius: '8px 0px 0px 8px' }} />
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="text-red-600 text-sm pt-2">
