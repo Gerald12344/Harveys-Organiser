@@ -1,10 +1,9 @@
-import { Html5QrcodeConfigs } from 'html5-qrcode/esm/html5-qrcode';
-import { useEffect, useRef } from 'react';
-
+import { useRef } from 'react';
 import { useHtml5QrCodeScanner } from 'react-html5-qrcode-reader';
+
 let rendered = false;
 
-function YourComponent({ update }: { update: (data: string) => void }) {
+function BarcodeComponent({ update }: { update: (data: string) => void }) {
     const audiorref = useRef<HTMLAudioElement>(null);
     const { Html5QrcodeScanner } = useHtml5QrCodeScanner('html5-qrcode.min.js');
     if (Html5QrcodeScanner && !rendered) {
@@ -32,7 +31,6 @@ function YourComponent({ update }: { update: (data: string) => void }) {
         );
     }
 
-    // beware: id must be the same as the first argument of Html5QrcodeScanner
     return (
         <>
             <audio id="audio" src="Sound.wav" ref={audiorref} />
@@ -40,4 +38,4 @@ function YourComponent({ update }: { update: (data: string) => void }) {
         </>
     );
 }
-export default YourComponent;
+export default BarcodeComponent;
