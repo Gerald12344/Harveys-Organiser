@@ -32,6 +32,7 @@ apiRoute.get(async (req: NextApiRequest, res: NextApiResponse) => {
             {
                 $match: {
                     prodId: { $in: product.map((prod) => prod.prodId) },
+                    inStock: true,
                 },
 
             },
